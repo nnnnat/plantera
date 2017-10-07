@@ -1,0 +1,14 @@
+@import 'de.css';
+
+body {
+  background-color: DarkOrchid;
+  color: White;
+
+  @media (--xl) {
+    background-color: LimeGreen;
+  }
+
+  &:--enter {
+    color: Red;
+  }
+}
