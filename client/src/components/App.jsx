@@ -1,7 +1,8 @@
 import React from 'react'
 
 export const App = () => {
+  let title = 'Plantera'
   return (
-    <h1>App!</h1>
+    <h1>{ title }</h1>
   )
 }
