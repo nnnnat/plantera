@@ -1,8 +1,8 @@
 import React from 'react'
+import { Header } from './Header.jsx'
 
 export const App = () => {
-  let title = 'Plantera'
   return (
-    <h1>{ title }</h1>
+    <Header />
   )
 }
