@@ -1,17 +1,16 @@
 import React from 'react'
 import { Header } from './Header'
 import { List } from './List'
+// scripts
+import { bogus } from '../scripts/utils'
 
-const plants = [
-  {'name': 'kim'},
-  {'name': 'Charlie'}
-]
+const plants = bogus()
 
 export const App = () => {
   return (
     <div>
       <Header />
-      <List plants={plants} />
+      <List plants={ plants } />
     </div>
   )
 }

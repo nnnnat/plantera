@@ -1,4 +1,5 @@
 import React from 'react'
+import { Plant } from './Plant'
 
 export const List = ({ plants }) => {
   return (
@@ -11,7 +12,7 @@ export const List = ({ plants }) => {
         </div>
       </div>
        <section className='cn cn2'>
-         { plants.map((plant) => <p key={plant.name}>{plant.name}</p>) }
+         { plants.map((plant, i) => <Plant key={ i }  plant={ plant } />) }
        </section>
     </main>
   )
