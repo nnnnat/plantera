@@ -1,16 +1,32 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Header } from './Header'
 import { List } from './List'
 // scripts
 import { bogus } from '../scripts/utils'
 
-const plants = bogus()
+//const plants = bogus()
 
-export const App = () => {
-  return (
-    <div>
-      <Header />
-      <List plants={ plants } />
-    </div>
-  )
+export class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      plants: []
+    }
+  }
+
+  componentWillMount () {
+    const req = new Request('localhost:4000/plants', { method: 'GET'})
+    fetch(req)
+      .then(res => res.json())
+      .then(plants => this.setState({ plants }))
+  }
+  
+  render () {
+    return (
+      <div>
+        <Header />
+        <List plants={ this.state.plants } />
+      </div>
+    )
+  } 
 }
