@@ -1,0 +1,29 @@
+{
+  "name": "plantera-server",
+  "version": "0.0.0",
+  "description": "Server API for Plantera a plant watering app",
+  "main": "index.js",
+  "scripts": {
+    "build": "",
+    "start": "nodemon src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnnnat/plantera.git"
+  },
+  "author": "Nat Hamilton <info@nathamilton.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nnnnat/plantera/issues"
+  },
+  "homepage": "https://github.com/nnnnat/plantera#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
