@@ -15,7 +15,7 @@ export class App extends Component {
   }
 
   componentWillMount () {
-    const req = new Request('localhost:4000/plants', { method: 'GET'})
+    const req = new Request('http://localhost:4000/plants', { method: 'GET'})
     fetch(req)
       .then(res => res.json())
       .then(plants => this.setState({ plants }))
