@@ -60,7 +60,6 @@
     "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
-    "axios": "^0.17.0",
     "de.css": "^0.3.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
