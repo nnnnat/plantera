@@ -4,10 +4,10 @@ export const Plant = ({ plant: { name } }) => {
   return (
     <div className='plant bdr--b bdr--gray1 gp pd0--y'>
 
-      <h4 className='tx--reset'>{ name }</h4>
+      <h3 className='h4 tx--reset'>{ name }</h3>
 
       <div>
-        <button className='btn btn--clear'>Edit</button>
+        <button className='btn--clear'>Edit</button>
       </div>
     </div>
   )

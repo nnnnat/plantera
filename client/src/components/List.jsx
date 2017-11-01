@@ -5,13 +5,13 @@ export const List = ({ plants }) => {
   return (
     <main>
       <div className='bg--gray1 pd0--y'>
-        <div className='cn cn2'>
-          <h5 className='tx--reset tx--primary tx--uppercase'>
+        <div className='cn2'>
+          <h2 className='h5 tx--reset tx--primary tx--uppercase'>
             All Plants
-          </h5>
+          </h2>
         </div>
       </div>
-       <section className='cn cn2'>
+       <section className='cn2'>
          { plants.map((plant, i) => <Plant key={ i }  plant={ plant } />) }
        </section>
     </main>
