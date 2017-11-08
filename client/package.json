@@ -4,8 +4,8 @@
   "description": "Client for Plantera a plant watering app",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack -p",
-    "dev": "webpack-dev-server",
+    "build": "webpack --config ./config/webpack.config.js -p",
+    "dev": "webpack-dev-server --config ./config/webpack.config.js",
     "lint": "standard --env mocha --fix && stylelint ./src/**/*.css",
     "start": "npm run dev",
     "test": "mocha --compilers js:babel-core/register ./src/**/*.test.js"
@@ -38,6 +38,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -60,9 +61,14 @@
     "webpack-dev-server": "^2.9.3"
   },
   "dependencies": {
+    "axios": "^0.17.0",
     "de.css": "^0.3.0",
+    "lodash": "^4.17.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "redux": "^3.7.2"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-promise": "^0.5.3"
   }
 }
