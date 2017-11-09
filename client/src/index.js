@@ -10,14 +10,14 @@ import { BrowserRouter as Router } from 'react-router-dom'
 // scripts
 import reducers from './scripts/reducers'
 // components
-import Routes from './components/routes'
+import App from './components/app'
 
 const middlewareStore = applyMiddleware(promise)(createStore)
 const rootEl = document.getElementById('root')
 render(
     <Provider store={middlewareStore(reducers)}>
       <Router>
-        <Routes />
+        <App />
       </Router>
     </Provider>
     , rootEl)

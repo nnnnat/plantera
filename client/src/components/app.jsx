@@ -5,7 +5,7 @@ import Header from './blocks/header'
 import Plants from './views/plants'
 import Form from './views/form'
 
-const Routes = (props) => (
+const App = (props) => (
   <div className='app'>
     <Header />
     <main>
@@ -15,4 +15,4 @@ const Routes = (props) => (
   </div>
 )
 
-export default Routes
+export default App
