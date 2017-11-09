@@ -18,7 +18,7 @@ const PlantSchema = new Schema({
     type: Number,
     required: [true, 'A water interval is required']
   },
-  lastWatered: {
+  nextWater: {
     type: String
   } 
 })
