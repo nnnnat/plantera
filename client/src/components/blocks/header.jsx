@@ -10,7 +10,7 @@ const Header = ({ location: { pathname }}) => (
       <h1 className='h2 tx--primary tx--reset'>Plantera</h1>
       <div className='gp--end' style={{ width: 'auto' }}>
         { (pathname === '/') ? <AddBtn /> : '' }
-        <Logo />
+        <Logo count={ 0 } />
       </div>
     </div>
   </header>
