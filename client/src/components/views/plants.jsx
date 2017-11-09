@@ -2,13 +2,24 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // scripts
 import { getPlants } from './../../scripts/actions'
+import { Dates } from './../../scripts/utils'
 // components
 import Title from './../elements/title'
 import List from './../blocks/list'
 
+const d = new Dates()
+
 class Plants extends Component {
   componentWillMount () {
     this.props.getPlants()
+  }
+
+  finePlants (plants) {
+    return _.mapKeys(_.filter(plants, (p) => !d.passed(p.nextWater)), '_id') 
+  }
+
+  thirstyPlants (plants) {
+    return _.mapKeys(_.filter(plants, (p) => d.passed(p.nextWater)), '_id')
   }
 
   renderList (title, plants) {
@@ -21,11 +32,13 @@ class Plants extends Component {
   }
   
   render () {
-    const { plants: { thirsty, fine } } = this.props
+    const { plants } = this.props
+    const thirsty = this.thirstyPlants(plants)
+    console.log(thirsty)
     return (
       <section className='plants'>
-        { thirsty ? this.renderList('Thirsty Plants', thirsty) : '' }
-        { this.renderList('All Plants', fine) }
+        { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty) : '' }
+        { this.renderList('All Plants', this.finePlants(plants)) }
       </section>
     )
   }

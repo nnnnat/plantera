@@ -28,9 +28,9 @@ export const postPlant = (plant, callback) => ({
 })
 
 // put plant updates to api
-export const putPlant = () => ({
+export const putPlant = (plant) => ({
   type: PUT_PLANT,
-  payload: 'updated plant'
+  payload: http.put(`/${ plant._id }`, plant)
 })
 
 // delete plant from api

@@ -16,7 +16,6 @@ export class Dates {
   // returns true if the first date
   // is >= the second date
   compare (dt1, dt2) {
-    console.log((this.parse(dt1) >= this.parse(dt2)))
     return (this.parse(dt1) >= this.parse(dt2))
   }
 
