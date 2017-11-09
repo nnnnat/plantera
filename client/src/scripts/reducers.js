@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 import _ from 'lodash'
 // action types
 import { GET_PLANTS } from './actions'
@@ -16,7 +17,8 @@ const plantReducer = (state = {}, action) => {
 
 // combined reducers
 const reducers = combineReducers({
-  plants: plantReducer
+  plants: plantReducer,
+  form: formReducer
 })
 
 export default reducers

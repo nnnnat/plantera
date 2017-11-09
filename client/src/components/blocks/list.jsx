@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 // scripts
-import { getPlants } from './../scripts/actions'
+import { getPlants } from './../../scripts/actions'
 // components
 import { Plant } from './plant'
 

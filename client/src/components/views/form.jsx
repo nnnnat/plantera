@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import { Field, reduxForm } from 'redux-form'
+// scripts
+//import { } from './../scripts/actions.js
 
 class Form extends Component {
   constructor (props) {
