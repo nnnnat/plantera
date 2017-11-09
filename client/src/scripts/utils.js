@@ -1,5 +1,10 @@
 // dates
 export class Dates {
+  // has the provided date passed 
+  passed (dt) {
+    return this.compare(this.now(), dt)
+  }
+  
   // adds days to a date
   // returns new fromated date 
   nextDate (dt, int) {
@@ -11,8 +16,7 @@ export class Dates {
   // returns true if the first date
   // is >= the second date
   compare (dt1, dt2) {
-    console.log('date one', this.parse(dt1))
-    console.log('date two', this.parse(dt2))
+    console.log((this.parse(dt1) >= this.parse(dt2)))
     return (this.parse(dt1) >= this.parse(dt2))
   }
 

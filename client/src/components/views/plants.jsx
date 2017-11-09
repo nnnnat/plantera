@@ -10,13 +10,22 @@ class Plants extends Component {
   componentWillMount () {
     this.props.getPlants()
   }
+
+  renderList (title, plants) {
+    return (
+      <div>
+        <Title title={ title } bg='bg--gray0' />
+        <List plants={ plants }/>
+      </div>
+    )
+  }
   
   render () {
-    const { plants } = this.props
+    const { plants: { thirsty, fine } } = this.props
     return (
       <section className='plants'>
-        <Title title='All Plants' bg='bg--gray0' />
-        <List plants={ plants }/>
+        { thirsty ? this.renderList('Thirsty Plants', thirsty) : '' }
+        { this.renderList('All Plants', fine) }
       </section>
     )
   }

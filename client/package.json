@@ -13,7 +13,8 @@
   "babel": {
     "presets": [
       "env",
-      "react"
+      "react",
+      "stage-2"
     ]
   },
   "browserslist": [
