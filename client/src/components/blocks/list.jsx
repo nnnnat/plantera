@@ -4,9 +4,9 @@ import _ from 'lodash'
 import { Plant } from './plant'
 
 const List = ({ plants }) => (
-  <section className='cn2'>
+  <div className='cn2' style={{ paddingBottom: '0', paddingTop: '0' }}>
     { _.map(plants, plant => <Plant key={ plant._id }  plant={ plant } />) }
-  </section>
+  </div>
 )
 
 export default List

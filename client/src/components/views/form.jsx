@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Field, reduxForm } from 'redux-form'
 // scripts
 //import { } from './../scripts/actions.js
+// components
+import Title from './../elements/title'
 
 class Form extends Component {
   constructor (props) {
@@ -31,11 +33,9 @@ class Form extends Component {
   render () {
     const { add, name, species, waterInt } = this.state
     return (
-      <section className='form'>
-        <div className='cn2'>
-          <h2 className='h5 mg2--y tx--primary tx--uppercase'>
-            { (add) ? 'Add Plant' : 'Edit' }
-          </h2>
+      <section className='form bg--gray0'>
+        <Title title='Add Plant' />
+        <div className='cn2' style={{ paddingBottom: '0', paddingTop: '0' }}>
           <form onSubmit={ this.submit.bind(this) }>
             <label>
               Nickname
