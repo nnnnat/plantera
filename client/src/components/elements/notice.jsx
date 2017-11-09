@@ -9,9 +9,9 @@ const css = {
   top: '0'
 }
 
-const Notice = (props) => (
+const Notice = ({ count }) => (
   <span className='bg--error tx--white pd0' style={css}>
-    { props.count }
+    { count }
   </span>
 )
 

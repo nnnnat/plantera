@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import _ from 'lodash'
 // scripts
-import { GET_PLANTS, PUT_PLANT } from './actions'
+import { GET_PLANTS, PUT_PLANT, COUNT } from './actions'
 
 // reducers
 const plantReducer = (state = {}, action) => {
@@ -17,9 +17,19 @@ const plantReducer = (state = {}, action) => {
   }
 }
 
+const noticeReducer = (state = {}, action) => {
+  switch(action.type) {
+  case COUNT:
+    return action.count
+  default:
+    return state
+  }
+}
+
 // combined reducers
 const reducers = combineReducers({
   plants: plantReducer,
+  notice: noticeReducer,
   form: formReducer
 })
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // scripts
-import { getPlants } from './../../scripts/actions'
+import { getPlants, setNotice } from './../../scripts/actions'
 import { Dates } from './../../scripts/utils'
 // components
 import Title from './../elements/title'
@@ -10,8 +10,13 @@ import List from './../blocks/list'
 const d = new Dates()
 
 class Plants extends Component {
-  componentWillMount () {
+  componentDidMount () {
     this.props.getPlants()
+  }
+
+  componentWillReceiveProps (nextProps) {
+    const { plants } =  nextProps
+    this.props.setNotice(_.size(this.thirstyPlants(plants)))
   }
 
   finePlants (plants) {
@@ -34,7 +39,7 @@ class Plants extends Component {
   render () {
     const { plants } = this.props
     const thirsty = this.thirstyPlants(plants)
-    console.log(thirsty)
+    
     return (
       <section className='plants'>
         { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty) : '' }
@@ -46,4 +51,4 @@ class Plants extends Component {
 
 const mapStateToProps = (state) => ({ plants: state.plants })
 
-export default connect(mapStateToProps, { getPlants })(Plants)
+export default connect(mapStateToProps, { getPlants, setNotice })(Plants)
