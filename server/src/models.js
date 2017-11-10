@@ -20,7 +20,7 @@ const PlantSchema = new Schema({
   },
   nextWater: {
     type: String
-  } 
+  }
 })
 
 const Plant = mongoose.model('plant', PlantSchema)

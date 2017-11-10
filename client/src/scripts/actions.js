@@ -20,7 +20,7 @@ const http = axios.create({ baseURL: apiURL })
 export const setNotice = (count) => ({
   type: COUNT,
   count
-}) 
+})
 
 // get plants from api
 export const getPlants = () => ({
@@ -37,7 +37,7 @@ export const postPlant = (plant, callback) => ({
 // put plant updates to api
 export const putPlant = (plant) => ({
   type: PUT_PLANT,
-  payload: http.put(`/${ plant._id }`, plant)
+  payload: http.put(`/${plant._id}`, plant)
 })
 
 // delete plant from api

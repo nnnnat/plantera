@@ -7,22 +7,22 @@ import { GET_PLANTS, PUT_PLANT, COUNT } from './actions'
 // reducers
 const plantReducer = (state = {}, action) => {
   const { data } = (action.payload) ? action.payload : {}
-  switch(action.type) {
-  case GET_PLANTS:
-    return _.mapKeys(data, '_id')
-  case PUT_PLANT:
-    return { ...state, [data._id]: data }
-  default:
-    return state
+  switch (action.type) {
+    case GET_PLANTS:
+      return _.mapKeys(data, '_id')
+    case PUT_PLANT:
+      return { ...state, [data._id]: data }
+    default:
+      return state
   }
 }
 
 const noticeReducer = (state = {}, action) => {
-  switch(action.type) {
-  case COUNT:
-    return action.count
-  default:
-    return state
+  switch (action.type) {
+    case COUNT:
+      return action.count
+    default:
+      return state
   }
 }
 

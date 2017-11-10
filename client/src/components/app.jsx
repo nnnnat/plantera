@@ -9,8 +9,8 @@ const App = (props) => (
   <div className='app'>
     <Header />
     <main>
-      <Route path='/' exact component={ Plants } />
-      <Route path='/add-plant' component={ AddPlant } />
+      <Route path='/' exact component={Plants} />
+      <Route path='/add-plant' component={AddPlant} />
     </main>
   </div>
 )

@@ -1,18 +1,18 @@
 // dates
 export class Dates {
-  // has the provided date passed 
+  // has the provided date passed
   passed (dt) {
     return this.compare(this.now(), dt)
   }
-  
+
   // adds days to a date
-  // returns new fromated date 
+  // returns new fromated date
   nextDate (dt, int) {
     let date = this.parse(dt)
     date.setDate(date.getDate() + int)
     return this.format(date)
   }
-  
+
   // returns true if the first date
   // is >= the second date
   compare (dt1, dt2) {
@@ -26,7 +26,7 @@ export class Dates {
 
   // formats date object to mm/dd/yyyy string
   format (dt) {
-    return `${ (dt.getMonth()+1) }/${ dt.getDate() }/${ dt.getFullYear() }`
+    return `${(dt.getMonth() + 1)}/${dt.getDate()}/${dt.getFullYear()}`
   }
 
   // parses date string into date object

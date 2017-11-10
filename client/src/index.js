@@ -14,10 +14,8 @@ import App from './components/app'
 
 const middlewareStore = applyMiddleware(promise)(createStore)
 const rootEl = document.getElementById('root')
-render(
-    <Provider store={middlewareStore(reducers)}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>
-    , rootEl)
+render(<Provider store={middlewareStore(reducers)}>
+  <Router>
+    <App />
+  </Router>
+</Provider>, rootEl)

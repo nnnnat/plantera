@@ -12,11 +12,11 @@ class WateredBtn extends Component {
     plant.nextWater = d.nextDate(d.now(), plant.waterInt)
     this.props.putPlant(plant)
   }
-  
+
   render () {
     const { plant } = this.props
     return (
-      <button onClick={ (e) => this.clicked(plant) }>
+      <button onClick={(e) => this.clicked(plant)}>
         <span>Watered Plant</span>
       </button>
     )

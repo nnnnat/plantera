@@ -7,7 +7,7 @@ export const Plant = ({ plant }) => {
     <div className='plant bdr--b bdr--gray1 gp pd0--y'>
       <h3 className='h4 tx--reset'>{ plant.name }</h3>
       <div>
-        <WateredBtn plant={ plant } />
+        <WateredBtn plant={plant} />
         <button className='btn--clear'>Edit</button>
       </div>
     </div>
