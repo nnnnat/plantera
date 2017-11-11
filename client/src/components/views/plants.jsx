@@ -28,11 +28,11 @@ class Plants extends Component {
     return _.mapKeys(_.filter(plants, (p) => d.passed(p.nextWater)), '_id')
   }
 
-  renderList (title, plants) {
+  renderList (title, plants, type) {
     return (
       <div>
         <Title title={title} bg='bg--gray0' />
-        <List plants={plants} />
+        <List plants={plants} type={type} />
       </div>
     )
   }
@@ -43,8 +43,8 @@ class Plants extends Component {
 
     return (
       <section className='plants'>
-        { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty) : '' }
-        { this.renderList('All Plants', this.finePlants(plants)) }
+        { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty, 'thirsty') : '' }
+        { this.renderList('All Plants', this.finePlants(plants), 'fine') }
       </section>
     )
   }

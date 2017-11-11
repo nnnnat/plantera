@@ -3,9 +3,9 @@ import _ from 'lodash'
 // components
 import { Plant } from './plant'
 
-const List = ({ plants }) => (
+const List = ({ plants, type }) => (
   <div className='cn2' style={{ paddingBottom: '0', paddingTop: '0' }}>
-    { _.map(plants, plant => <Plant key={plant._id} plant={plant} />) }
+    { _.map(plants, plant => <Plant key={plant._id} plant={plant} type={type} />) }
   </div>
 )
 
