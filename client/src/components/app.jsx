@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import Header from './blocks/header'
 import Plants from './views/plants'
 import AddPlant from './views/addPlant'
+import EditPlant from './views/editPlant'
 
 const App = (props) => (
   <div className='app'>
@@ -11,6 +12,7 @@ const App = (props) => (
     <main>
       <Route path='/' exact component={Plants} />
       <Route path='/add-plant' component={AddPlant} />
+      <Route path='/edit-plant' render={({ location }) => <EditPlant plant={location.state} />} />
     </main>
   </div>
 )

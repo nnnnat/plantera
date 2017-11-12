@@ -9,6 +9,7 @@ export const POST_PLANT = 'post_plant'
 export const PUT_PLANT = 'put_plant'
 export const DELETE_PLANT = 'delete_plant'
 export const COUNT = 'count'
+export const EDIT_PLANT = 'edit_plant'
 
 // request init
 const http = axios.create({ baseURL: apiURL })
@@ -17,10 +18,10 @@ const http = axios.create({ baseURL: apiURL })
 // ===========================================
 
 // if thirsty plants set notifications
-export const setNotice = (count) => ({
-  type: COUNT,
-  count
-})
+export const setNotice = (count) => ({ type: COUNT, count })
+
+// edit plant form setup
+export const editPlant = (plant) => ({ type: EDIT_PLANT, plant })
 
 // get plants from api
 export const getPlants = () => ({
