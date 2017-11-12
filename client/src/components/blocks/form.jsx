@@ -30,7 +30,7 @@ class Form extends Component {
           format={val => val || 14}
           parse={val => parseInt(val)}
           component={RangeField} />
-        <div className='gp--start pd2--y'>
+        <div className='gp--left pd2--y'>
           <button className='btn--primary' type='submit'>Add Plant</button>
           <button className='btn--clear' type='reset'>Cancel</button>
         </div>
