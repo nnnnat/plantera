@@ -1,7 +1,7 @@
 import React from 'react'
 // components
-import Title from './../elements/title'
-import Form from './../blocks/form'
+import PageTitle from './../elements/pageTitle'
+import NewForm from './../blocks/newForm'
 
 const css = {
   minHeight: 'calc(100vh - 105px)'
@@ -9,9 +9,9 @@ const css = {
 
 const AddPlant = () => (
   <section className='form bg--gray0' style={css}>
-    <Title title='Add Plant' />
+    <PageTitle title='Add Plant' />
     <div className='cn2 pd2--x mg--auto'>
-      <Form />
+      <NewForm />
     </div>
   </section>
 )

@@ -6,10 +6,10 @@ const apiURL = `http://localhost:4000/plants`
 // action types
 export const GET_PLANTS = 'get_plants'
 export const POST_PLANT = 'post_plant'
-export const PUT_PLANT = 'put_plant'
+export const EDIT_PLANT = 'edit_plant'
+export const WATER_PLANT = 'water_plant'
 export const DELETE_PLANT = 'delete_plant'
 export const COUNT = 'count'
-export const EDIT_PLANT = 'edit_plant'
 
 // request init
 const http = axios.create({ baseURL: apiURL })
@@ -20,9 +20,6 @@ const http = axios.create({ baseURL: apiURL })
 // if thirsty plants set notifications
 export const setNotice = (count) => ({ type: COUNT, count })
 
-// edit plant form setup
-export const editPlant = (plant) => ({ type: EDIT_PLANT, plant })
-
 // get plants from api
 export const getPlants = () => ({
   type: GET_PLANTS,
@@ -32,12 +29,19 @@ export const getPlants = () => ({
 // post a new plant to api
 export const postPlant = (plant, callback) => ({
   type: POST_PLANT,
-  payload: http.post('', plant).then(() => callback())
+  payload: http.post('', plant)
+    .then(() => callback())
 })
 
-// put plant updates to api
-export const putPlant = (plant) => ({
-  type: PUT_PLANT,
+// edit plant form setup
+export const editPlant = (plant, callback) => ({
+  type: EDIT_PLANT,
+  payload: http.put(`/${plant._id}`, plant)
+    .then(() => callback())
+})
+
+export const waterPlant = (plant) => ({
+  type: WATER_PLANT,
   payload: http.put(`/${plant._id}`, plant)
 })
 

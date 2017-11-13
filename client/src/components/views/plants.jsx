@@ -5,7 +5,7 @@ import _ from 'lodash'
 import { getPlants, setNotice } from './../../scripts/actions'
 import { Dates } from './../../scripts/utils'
 // components
-import Title from './../elements/title'
+import PageTitle from './../elements/pageTitle'
 import List from './../blocks/list'
 
 const d = new Dates()
@@ -31,7 +31,7 @@ class Plants extends Component {
   renderList (title, plants, type) {
     return (
       <div>
-        <Title title={title} bg='bg--gray0' />
+        <PageTitle title={title} bg='bg--gray0' />
         <List plants={plants} type={type} />
       </div>
     )

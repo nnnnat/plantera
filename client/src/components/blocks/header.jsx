@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 // compoents
 import Logo from './../elements/logo'
-import AddBtn from './../elements/addBtn'
+import AddBtn from './../elements/buttons/add'
 
 const Header = ({ notice, location: { pathname } }) => (
   <header className='bdr--b bdr--gray1 pd0'>

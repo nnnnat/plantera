@@ -6,8 +6,8 @@ import { Field, reduxForm } from 'redux-form'
 import { postPlant, editPlant, putPlant } from './../../scripts/actions.js'
 import { Dates } from './../../scripts/utils'
 // components
-import TextField from './../elements/textField'
-import RangeField from './../elements/rangeField'
+import TextField from './../elements/fields/text'
+import RangeField from './../elements/fields/range'
 
 const dates = new Dates()
 

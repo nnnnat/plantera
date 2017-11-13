@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // scripts
-import { putPlant } from './../../scripts/actions'
-import { Dates } from './../../scripts/utils'
+import { waterPlant } from './../../../scripts/actions'
+import { Dates } from './../../../scripts/utils'
 
 const d = new Dates()
 const css = {
@@ -17,7 +17,7 @@ class WateredBtn extends Component {
   clicked () {
     let { plant } = this.props
     plant.nextWater = d.nextDate(d.now(), plant.waterInt)
-    this.props.putPlant(plant)
+    this.props.waterPlant(plant)
   }
 
   render () {
@@ -30,4 +30,4 @@ class WateredBtn extends Component {
   }
 }
 
-export default connect(null, { putPlant })(WateredBtn)
+export default connect(null, { waterPlant })(WateredBtn)

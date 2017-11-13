@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Title = ({ title, bg }) => (
+const PageTitle = ({ title, bg }) => (
   <div className={`${bg || ''} tx--primary`}>
     <div className='cn2 pd2 mg--auto'>
       <h2 className='h5 tx--reset tx--uppercase'>
@@ -10,4 +10,4 @@ const Title = ({ title, bg }) => (
   </div>
 )
 
-export default Title
+export default PageTitle

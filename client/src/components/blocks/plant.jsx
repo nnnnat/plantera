@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 // components
-import WateredBtn from './../elements/wateredBtn'
+import WateredBtn from './../elements/buttons/watered'
 
 export const Plant = ({ plant, type }) => {
   const thirsty = (type === 'thirsty')
