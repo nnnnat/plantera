@@ -1,45 +1,58 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Field, reduxForm } from 'redux-form'
 // scripts
-import { postPlant, editPlant, putPlant } from './../../scripts/actions.js'
-import { Dates } from './../../scripts/utils'
+import { postPlant, editPlant } from './../../scripts/actions'
+import { Dates } from './../../scripts/utils.js'
 // components
 import TextField from './../elements/fields/text'
 import RangeField from './../elements/fields/range'
 
-const dates = new Dates()
+const d = new Dates()
 
 class Form extends Component {
-  componentDidMount () {
-    const { edit, editPlant } = this.props
-    if (edit) {
-      editPlant(edit)
+  constructor (props) {
+    super(props)
+    const { edit } = this.props
+    this.state = {
+      name: (edit) ? edit.name : '',
+      species: (edit) ? edit.species : '',
+      waterInt: (edit) ? edit.waterInt : 14,
+      _id: (edit) ? edit._id : null
+    }
+
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  onChange (name, value) {
+    this.setState({ [name]: value })
+  }
+
+  onSubmit (e) {
+    e.preventDefault()
+    const { history, postPlant, editPlant } = this.props
+    const { name, species, waterInt, _id } = this.state
+    let plant = { name, species, waterInt }
+
+    if (_id) {
+      plant = { ...plant, _id }
+      editPlant(plant, () => history.push('/'))
+    } else {
+      plant = { ...plant, nextWater: d.nextDate(d.now(), waterInt) }
+      postPlant(plant, () => history.push('/'))
     }
   }
 
-  submit (vals) {
-    const { postPlant, history } = this.props
-    const plant = { ...vals, nextWater: dates.nextDate(dates.now(), vals.waterInt) }
-    postPlant(plant, () => history.push('/'))
-  }
-
   render () {
-    const { handleSubmit } = this.props
-
+    const { name, species, waterInt, _id } = this.state
     return (
-      <form onSubmit={handleSubmit(this.submit.bind(this))}>
-        <Field label='Nickname' name='name' component={TextField} />
-        <Field label='Species' name='species' component={TextField} />
-        <Field
-          label='Watering Interval'
-          name='waterInt'
-          format={val => val || 14}
-          parse={val => parseInt(val)}
-          component={RangeField} />
+      <form onSubmit={this.onSubmit}>
+        <TextField label='Nickname' name='name' value={name} onChange={this.onChange} />
+        <TextField label='Species' name='species' value={species} onChange={this.onChange} />
+        <RangeField label='Watering Interval' name='waterInt' value={waterInt} onChange={this.onChange} />
         <div className='gp--left pd2--y'>
-          <button className='btn--primary' type='submit'>Add Plant</button>
+          <button className='btn--primary' type='submit'>{ _id ? 'Edit' : 'Add' } Plant</button>
           <button className='btn--clear' type='reset'>Cancel</button>
         </div>
       </form>
@@ -47,17 +60,4 @@ class Form extends Component {
   }
 }
 
-const validate = (values) => {
-  const err = {}
-  if (!values.name) err.name = 'Please enter a Nickname for your plant'
-  if (!values.species) err.species = 'Please enter the plant species'
-  return err
-}
-
-const mapStateToProps = (state) => ({ initialValues: {
-  name: state.edit.name,
-  species: state.edit.species,
-  waterInt: state.edit.waterInt
-} })
-
-export default withRouter(reduxForm({ validate, form: 'PlantForm', enableReinitialize: true })(connect(mapStateToProps, { postPlant, putPlant, editPlant })(Form)))
+export default withRouter(connect(null, { postPlant, editPlant })(Form))
