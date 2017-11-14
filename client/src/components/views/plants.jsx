@@ -42,7 +42,7 @@ class Plants extends Component {
     const thirsty = this.thirstyPlants(plants)
 
     return (
-      <section className='plants'>
+      <section className='plants bg--white'>
         { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty, 'thirsty') : '' }
         { this.renderList('All Plants', this.finePlants(plants), 'fine') }
       </section>
