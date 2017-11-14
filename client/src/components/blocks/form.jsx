@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 // scripts
 import { postPlant, editPlant } from './../../scripts/actions'
@@ -7,6 +7,7 @@ import { Dates } from './../../scripts/utils.js'
 // components
 import TextField from './../elements/fields/text'
 import RangeField from './../elements/fields/range'
+import DeleteBtn from './../elements/buttons/delete'
 
 const d = new Dates()
 
@@ -51,9 +52,12 @@ class Form extends Component {
         <TextField label='Nickname' name='name' value={name} onChange={this.onChange} />
         <TextField label='Species' name='species' value={species} onChange={this.onChange} />
         <RangeField label='Watering Interval' name='waterInt' value={waterInt} onChange={this.onChange} />
-        <div className='gp--left pd2--y'>
-          <button className='btn--primary' type='submit'>{ _id ? 'Edit' : 'Add' } Plant</button>
-          <button className='btn--clear' type='reset'>Cancel</button>
+        <div className='gp'>
+          <div className='gp--left pd2--y'>
+            <button className='btn--primary btn--success' type='submit'>{ _id ? 'Update' : 'Add' } Plant</button>
+            <Link to='/' className='btn--alt'>Cancel</Link>
+          </div>
+          { _id ? <DeleteBtn id={_id} /> : '' }
         </div>
       </form>
     )

@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 import _ from 'lodash'
 // scripts
-import { GET_PLANTS, WATER_PLANT, COUNT } from './actions'
+import { GET_PLANTS, WATER_PLANT, DELETE_PLANT, COUNT } from './actions'
 
 // reducers
 const plantReducer = (state = {}, action) => {
@@ -12,6 +12,8 @@ const plantReducer = (state = {}, action) => {
       return _.mapKeys(data, '_id')
     case WATER_PLANT:
       return { ...state, [data._id]: data }
+    case DELETE_PLANT:
+      return _.omit(state, data)
     default:
       return state
   }

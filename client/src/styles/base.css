@@ -1,1 +1,35 @@
 @import 'de.css';
+
+main {
+  min-height: calc(100vh - 89px);
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+}
+
+[class*=view] {
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}
+
+.view-enter {
+  transform: translateY(100%);
+  z-index: 2;
+}
+
+.view-enter.view-enter-active {
+  transform: translateY(0);
+  transition: transform 500ms cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.view-exit { 
+  transform: translateY(0);
+  z-index: 0;
+}
+
+.view-exit.view-exit-active {
+  transform: translateY(-100%);
+  transition: transform 500ms cubic-bezier(0.39, 0.575, 0.565, 1) 200ms;
+}

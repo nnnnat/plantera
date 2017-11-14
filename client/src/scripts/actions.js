@@ -46,7 +46,11 @@ export const waterPlant = (plant) => ({
 })
 
 // delete plant from api
-export const deletePlant = () => ({
-  type: DELETE_PLANT,
-  payload: 'delete plant'
-})
+export const deletePlant = (id, callback) => {
+  http.delete(`/${id}`).then(() => callback())
+
+  return {
+    type: DELETE_PLANT,
+    payload: id
+  }
+}
