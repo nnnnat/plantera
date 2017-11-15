@@ -10,7 +10,7 @@ const css = {
 }
 
 const Notice = ({ count }) => (
-  <span className='bg--error tx--white pd0' style={css}>
+  <span className='notice bg--error tx--white pd0' style={css}>
     { count }
   </span>
 )
