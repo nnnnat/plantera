@@ -8,7 +8,7 @@ const css = {
 }
 
 const PlantForm = ({ plant }) => (
-  <section className='form bg--gray0' style={css}>
+  <section className='form bdr--t bdr--success bg--gray0' style={css}>
     <PageTitle title={(plant) ? 'Edit Plant' : 'Add Plant'} />
     <div className='cn2 pd2--x mg--auto'>
       <Form edit={plant} />
