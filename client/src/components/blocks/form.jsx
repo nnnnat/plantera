@@ -48,11 +48,13 @@ class Form extends Component {
   render () {
     const { name, species, waterInt, _id } = this.state
     return (
-      <form onSubmit={this.onSubmit}>
-        <TextField label='Nickname' name='name' value={name} onChange={this.onChange} />
-        <TextField label='Species' name='species' value={species} onChange={this.onChange} />
-        <RangeField label='Watering Interval' name='waterInt' value={waterInt} onChange={this.onChange} />
-        <div className='gp'>
+      <form className='bg--gray0' onSubmit={this.onSubmit}>
+        <div className='pd2--x'>
+          <TextField label='Nickname' name='name' value={name} onChange={this.onChange} />
+          <TextField label='Species' name='species' value={species} onChange={this.onChange} />
+          <RangeField label='Watering Interval' name='waterInt' value={waterInt} onChange={this.onChange} />
+        </div>
+        <div className='bg--white gp pd2--x'>
           <div className='gp--left pd2--y'>
             <button className='btn--primary btn--success' type='submit'>{ _id ? 'Update' : 'Add' } Plant</button>
             <Link to='/' className='btn--alt'>Cancel</Link>

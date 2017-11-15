@@ -31,7 +31,7 @@ class Plants extends Component {
   renderList (title, plants, type) {
     return (
       <div>
-        <PageTitle title={title} bg='bg--gray0' />
+        <PageTitle title={title} />
         <List plants={plants} type={type} />
       </div>
     )
