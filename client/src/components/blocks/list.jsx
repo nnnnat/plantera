@@ -5,7 +5,7 @@ import { Plant } from './plant'
 
 const List = ({ plants, type }) => (
   <div className='cn2 mg--auto'>
-    { _.map(plants, plant => <Plant key={plant._id} plant={plant} type={type} />) }
+    { _.map(plants, (plant, id) => <Plant key={id} plant={plant} type={type} />) }
   </div>
 )
 
