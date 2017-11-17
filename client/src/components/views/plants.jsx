@@ -41,7 +41,7 @@ class Plants extends Component {
     const { plants } = this.props
     const thirsty = this.thirstyPlants(plants)
     const bdrColor = (_.size(thirsty) > 0) ? 'bdr--alert' : 'bdr--gray1'
-    
+
     return (
       <section className={`plants bdr--t ${bdrColor} bg--white`}>
           { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty, 'thirsty') : '' }

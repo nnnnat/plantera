@@ -6,7 +6,7 @@ import WateredBtn from './../elements/buttons/watered'
 export const Plant = ({ plant, delay, type }) => {
   const thirsty = (type === 'thirsty')
   const alert = (<svg className='icon tx--alert mg1--r' style={{ fill: 'currentColor' }}><use xlinkHref='#icon-alert' /></svg>)
-  
+
   return (
     <div className='plant bdr--b bdr--gray1 gp pd2'>
       <h3 className='h4 gp tx--reset'>
@@ -20,3 +20,4 @@ export const Plant = ({ plant, delay, type }) => {
     </div>
   )
 }
+
