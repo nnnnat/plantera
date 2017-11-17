@@ -18,7 +18,10 @@ const http = axios.create({ baseURL: apiURL })
 // ===========================================
 
 // if thirsty plants set notifications
-export const setNotice = (count) => ({ type: COUNT, count })
+export const setNotice = (count) => ({
+  type: COUNT,
+  count
+})
 
 // get plants from api
 export const getPlants = () => ({
@@ -33,13 +36,14 @@ export const postPlant = (plant, callback) => ({
     .then(() => callback())
 })
 
-// edit plant form setup
+// plant has been edited
 export const editPlant = (plant, callback) => ({
   type: EDIT_PLANT,
   payload: http.put(`/${plant._id}`, plant)
     .then(() => callback())
 })
 
+// plant has been watered
 export const waterPlant = (plant) => ({
   type: WATER_PLANT,
   payload: http.put(`/${plant._id}`, plant)
