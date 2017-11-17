@@ -5,8 +5,7 @@ import _ from 'lodash'
 import { getPlants, setNotice } from './../../scripts/actions'
 import { Dates } from './../../scripts/utils'
 // components
-import SectionTitle from './../blocks/sectionTitle'
-import Plant from './../blocks/plant'
+import Section from './../partials/section'
 
 const d = new Dates()
 
@@ -25,32 +24,22 @@ class Plants extends Component {
 
   sortPlants () {
     const { plants } = this.props
-    const sort = _.reduce(plants, (res, val) => {
-      (d.passed(val.nextWater))
-        ? (res['thirsty'] || (res['thirsty'] = [])).push(val)
-        : (res['all'] || (res['all'] = [])).push(val)
-      return res
+    const sort = _.reduce(plants, (r, v) => {
+      (d.passed(v.nextWater))
+        ? (r['thirsty'] || (r['thirsty'] = [])).push(v)
+        : (r['all'] || (r['all'] = [])).push(v)
+      return r
     }, {})
-    return Object.keys(sort).sort().reduce((res, key) => {
-      res[key] = sort[key]
-      return res
-    }, {})
-  }
 
-  renderList (plants, title) {
-    const thirsty = (title === 'thirsty')
-    const bdrColor = (thirsty) ? 'bdr--alert' : 'bdr--gray1'
-    return (
-      <section key={title} className={`plants bdr--t ${bdrColor} bg--white`}>
-        <SectionTitle title={`${title} Plants`} />
-        { _.map(plants, (plant, id) => <Plant key={id} plant={plant} thirsty={thirsty} />) }
-      </section>
-    )
+    return Object.keys(sort).sort().reduce((r, k) => {
+      r[k] = sort[k]
+      return r
+    }, {})
   }
 
   render () {
     const plants = this.sortPlants()
-    return _.reverse(_.map(plants, (p, t) => this.renderList(p, t)))
+    return _.reverse(_.map(plants, (p, t) => <Section key={t} plants={p} title={t} />))
   }
 }
 
