@@ -11,3 +11,8 @@ main {
   overflow: hidden;
   width: 100vw;
 }
+
+/* plant component */
+.plant:last-of-type {
+  border-bottom: none;
+}
