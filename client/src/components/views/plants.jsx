@@ -5,8 +5,8 @@ import _ from 'lodash'
 import { getPlants, setNotice } from './../../scripts/actions'
 import { Dates } from './../../scripts/utils'
 // components
-import PageTitle from './../elements/pageTitle'
-import List from './../blocks/list'
+import PageTitle from './../blocks/pageTitle'
+import List from './../partials/list'
 
 const d = new Dates()
 
@@ -44,7 +44,7 @@ class Plants extends Component {
 
     return (
       <section className={`plants bdr--t ${bdrColor} bg--white`}>
-          { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty, 'thirsty') : '' }
+        { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty, 'thirsty') : '' }
         { this.renderList('All Plants', this.finePlants(plants), 'fine') }
       </section>
     )

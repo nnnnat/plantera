@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 // components
-import Notice from './notice'
+import Notice from './../elements/notice'
 
 const Logo = ({ count }) => (
   <Link to='/' className='logo h1 tx--reset' style={{ border: 'none', position: 'relative' }}>

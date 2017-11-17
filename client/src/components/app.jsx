@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route, withRouter } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 // components
-import Header from './blocks/header'
+import Header from './partials/header'
 import Plants from './views/plants'
 import PlantForm from './views/plantForm'
 

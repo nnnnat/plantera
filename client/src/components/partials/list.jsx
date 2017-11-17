@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 // components
-import { Plant } from './plant'
+import { Plant } from './../blocks/plant'
 
 const List = ({ plants, type }) => (
   <div className='cn2 mg--auto'>

@@ -1,7 +1,7 @@
 import React from 'react'
 // components
-import PageTitle from './../elements/pageTitle'
-import Form from './../blocks/form'
+import PageTitle from './../blocks/pageTitle'
+import Form from './../partials/form'
 
 const PlantForm = ({ plant }) => (
   <section className='form bg--gray0 bdr--t bdr--success'>
