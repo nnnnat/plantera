@@ -19,7 +19,7 @@ const plantReducer = (state = {}, action) => {
   }
 }
 
-const noticeReducer = (state = {}, action) => {
+const noticeReducer = (state = 0, action) => {
   switch (action.type) {
     case COUNT:
       return action.count

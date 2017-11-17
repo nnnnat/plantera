@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom'
 import Icon from './../elements/icon'
 import Notice from './../elements/notice'
 
-const Logo = ({ count }) => (
-  <Link to='/' className='logo h1 tx--reset' style={{ border: 'none', position: 'relative' }}>
-    { (count > 0) ? <Notice count={count} /> : '' }
+const css = {
+  border: 'none',
+  position: 'relative'
+}
+
+const Logo = () => (
+  <Link to='/' className='logo h1 tx--reset' style={css}>
+    <Notice />
     <Icon svg='logo' color='primary' />
   </Link>
 )
