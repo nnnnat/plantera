@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // scripts
 import { waterPlant } from './../../../scripts/actions'
-import { Dates } from './../../../scripts/utils'
+import * as d from './../../../scripts/dates'
 
-const d = new Dates()
 const css = {
   background: 'transparent',
   borderRadius: '50%',

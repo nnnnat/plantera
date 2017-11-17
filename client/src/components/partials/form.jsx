@@ -3,13 +3,11 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 // scripts
 import { postPlant, editPlant } from './../../scripts/actions'
-import { Dates } from './../../scripts/utils.js'
+import * as d from './../../scripts/dates'
 // components
 import TextField from './../elements/fields/text'
 import RangeField from './../elements/fields/range'
 import DeleteBtn from './../elements/buttons/delete'
-
-const d = new Dates()
 
 class Form extends Component {
   constructor (props) {

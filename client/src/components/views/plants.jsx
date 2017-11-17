@@ -3,11 +3,9 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 // scripts
 import { getPlants, setNotice } from './../../scripts/actions'
-import { Dates } from './../../scripts/utils'
+import * as d from './../../scripts/dates'
 // components
 import Section from './../partials/section'
-
-const d = new Dates()
 
 class Plants extends Component {
   componentDidMount () {
