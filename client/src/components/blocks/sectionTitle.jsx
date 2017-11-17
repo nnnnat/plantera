@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PageTitle = ({ title }) => (
+const SectionTitle = ({ title }) => (
   <div className='bg--gray0 tx--secondary'>
     <div className='cn2 pd2 mg--auto'>
       <h2 className='h5 tx--reset tx--uppercase'>
@@ -10,4 +10,4 @@ const PageTitle = ({ title }) => (
   </div>
 )
 
-export default PageTitle
+export default SectionTitle
