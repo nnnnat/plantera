@@ -12,40 +12,48 @@ const d = new Dates()
 
 class Plants extends Component {
   componentDidMount () {
-    this.props.getPlants()
+    const { getPlants } = this.props
+    getPlants()
   }
 
   componentWillReceiveProps (nextProps) {
+    const { setNotice } = this.props
     const { plants } = nextProps
-    this.props.setNotice(_.size(this.thirstyPlants(plants)))
+    const count = _.size(_.filter(plants, (p) => d.passed(p.nextWater)))
+    setNotice(count)
   }
 
-  finePlants (plants) {
-    return _.mapKeys(_.filter(plants, (p) => !d.passed(p.nextWater)), '_id')
+  sortPlants () {
+    const { plants } = this.props
+    const sort = _.reduce(plants, (res, val) => {
+      (d.passed(val.nextWater))
+        ? (res['thirsty'] || (res['thirsty'] = [])).push(val)
+        : (res['all'] || (res['all'] = [])).push(val)
+      return res
+    }, {})
+    return Object.keys(sort).sort().reduce((res, key) => {
+      res[key] = sort[key]
+      return res
+    }, {})
   }
 
-  thirstyPlants (plants) {
-    return _.mapKeys(_.filter(plants, (p) => d.passed(p.nextWater)), '_id')
-  }
-
-  renderList (title, plants, type) {
+  renderList (plants, title) {
     return (
-      <div>
-        <SectionTitle title={title} />
-        <List plants={plants} type={type} />
+      <div key={title}>
+        <SectionTitle title={`${title} Plants`} />
+        <List plants={plants} thirsty={(title === 'thirsty')} />
       </div>
     )
   }
 
   render () {
-    const { plants } = this.props
-    const thirsty = this.thirstyPlants(plants)
-    const bdrColor = (_.size(thirsty) > 0) ? 'bdr--alert' : 'bdr--gray1'
+    const plants = this.sortPlants()
+    const isThirsty = (plants.thirsty)
+    const bdrColor = (isThirsty) ? 'bdr--alert' : 'bdr--gray1'
 
     return (
       <section className={`plants bdr--t ${bdrColor} bg--white`}>
-        { _.size(thirsty) > 0 ? this.renderList('Thirsty Plants', thirsty, 'thirsty') : '' }
-        { this.renderList('All Plants', this.finePlants(plants), 'fine') }
+        { _.reverse(_.map(plants, (p, t) => this.renderList(p, t))) }
       </section>
     )
   }

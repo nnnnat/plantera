@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom'
 import Icon from './../elements/icon'
 import WateredBtn from './../elements/buttons/watered'
 
-export const Plant = ({ plant, type }) => {
-  const thirsty = (type === 'thirsty')
-
+export const Plant = ({ plant, thirsty }) => {
   return (
     <div className='plant bdr--b bdr--gray1 gp pd2'>
       <h3 className='h4 gp tx--reset'>
@@ -20,4 +18,3 @@ export const Plant = ({ plant, type }) => {
     </div>
   )
 }
-
