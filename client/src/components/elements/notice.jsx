@@ -11,7 +11,7 @@ const css = {
 }
 
 const Notice = ({ count }) => {
-  if (count === 0) return ''
+  if (!count) return ''
   return (
     <span className='notice bg--error tx--white pd0' style={css}>
       { count }

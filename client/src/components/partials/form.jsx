@@ -7,7 +7,7 @@ import * as d from './../../scripts/dates'
 // components
 import TextField from './../elements/fields/text'
 import RangeField from './../elements/fields/range'
-import DeleteBtn from './../elements/buttons/delete'
+import FormBtns from './../blocks/formBtns'
 
 class Form extends Component {
   constructor (props) {
@@ -47,18 +47,12 @@ class Form extends Component {
     const { name, species, waterInt, _id } = this.state
     return (
       <form className='bg--gray0' onSubmit={this.onSubmit}>
-        <div className='pd2--x'>
+        <div className='cn2 mg--auto pd2--x'>
           <TextField label='Nickname' name='name' value={name} onChange={this.onChange} />
           <TextField label='Species' name='species' value={species} onChange={this.onChange} />
           <RangeField label='Watering Interval' name='waterInt' value={waterInt} onChange={this.onChange} />
         </div>
-        <div className='bg--white gp pd2--x'>
-          <div className='gp--left pd2--y'>
-            <button className='btn--primary btn--success' type='submit'>{ _id ? 'Update' : 'Add' } Plant</button>
-            <Link to='/' className='btn--alt'>Cancel</Link>
-          </div>
-          { _id ? <DeleteBtn id={_id} /> : '' }
-        </div>
+        <FormBtns id={_id}/>
       </form>
     )
   }
