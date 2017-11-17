@@ -38,24 +38,19 @@ class Plants extends Component {
   }
 
   renderList (plants, title) {
+    const thirsty = (title === 'thirsty')
+    const bdrColor = (thirsty) ? 'bdr--alert' : 'bdr--gray1'
     return (
-      <div key={title}>
+      <section key={title} className={`plants bdr--t ${bdrColor} bg--white`}>
         <SectionTitle title={`${title} Plants`} />
-        <List plants={plants} thirsty={(title === 'thirsty')} />
-      </div>
+        <List plants={plants} thirsty={thirsty} />
+      </section>
     )
   }
 
   render () {
     const plants = this.sortPlants()
-    const isThirsty = (plants.thirsty)
-    const bdrColor = (isThirsty) ? 'bdr--alert' : 'bdr--gray1'
-
-    return (
-      <section className={`plants bdr--t ${bdrColor} bg--white`}>
-        { _.reverse(_.map(plants, (p, t) => this.renderList(p, t))) }
-      </section>
-    )
+    return _.reverse(_.map(plants, (p, t) => this.renderList(p, t)))
   }
 }
 
