@@ -6,7 +6,7 @@ import { getPlants, setNotice } from './../../scripts/actions'
 import { Dates } from './../../scripts/utils'
 // components
 import SectionTitle from './../blocks/sectionTitle'
-import List from './../partials/list'
+import Plant from './../blocks/plant'
 
 const d = new Dates()
 
@@ -43,7 +43,7 @@ class Plants extends Component {
     return (
       <section key={title} className={`plants bdr--t ${bdrColor} bg--white`}>
         <SectionTitle title={`${title} Plants`} />
-        <List plants={plants} thirsty={thirsty} />
+        { _.map(plants, (plant, id) => <Plant key={id} plant={plant} thirsty={thirsty} />) }
       </section>
     )
   }
