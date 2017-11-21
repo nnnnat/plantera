@@ -5,7 +5,7 @@ import Header from './partials/header'
 import Plants from './views/plants'
 import PlantForm from './views/plantForm'
 
-const App = withRouter(({ location }) => (
+export default withRouter(({ location }) => (
   <div className='app'>
     <Header />
     <main>
@@ -17,5 +17,3 @@ const App = withRouter(({ location }) => (
     </main>
   </div>
 ))
-
-export default App

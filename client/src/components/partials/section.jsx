@@ -4,7 +4,7 @@ import _ from 'lodash'
 import SectionTitle from './../blocks/sectionTitle'
 import Plant from './../blocks/plant'
 
-const Section = ({ plants, title }) => {
+export default ({ plants, title }) => {
   const thirsty = (title === 'thirsty')
   const bdrColor = (thirsty) ? 'bdr--alert' : 'bdr--gray1'
 
@@ -15,5 +15,3 @@ const Section = ({ plants, title }) => {
     </section>
   )
 }
-
-export default Section

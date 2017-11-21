@@ -3,7 +3,7 @@ import React from 'react'
 import SectionTitle from './../blocks/sectionTitle'
 import Form from './../partials/form'
 
-const PlantForm = ({ plant }) => (
+export default ({ plant }) => (
   <section className='form bg--gray0 bdr--t bdr--success'>
     <SectionTitle title={(plant) ? 'Edit Plant' : 'Add Plant'} />
     <div className=''>
@@ -11,5 +11,3 @@ const PlantForm = ({ plant }) => (
     </div>
   </section>
 )
-
-export default PlantForm

@@ -10,13 +10,11 @@ const css = {
   top: '0'
 }
 
-const Notice = ({ count }) => {
+export default connect(state => ({ count: state.notice }))(({ count }) => {
   if (!count) return ''
   return (
     <span className='notice bg--error tx--white pd0' style={css}>
       { count }
     </span>
   )
-}
-
-export default connect(state => ({ count: state.notice }))(Notice)
+})

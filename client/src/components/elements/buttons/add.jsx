@@ -7,7 +7,7 @@ const css = {
   borderRadius: '.25rem'
 }
 
-const AddBtn = (props) => (
+export default (props) => (
   <Link to='/add-plant' className='btn btn--primary pd0' style={css}>
     <span className='sr'>
       Add new plant
@@ -15,5 +15,3 @@ const AddBtn = (props) => (
     <Icon svg='add' />
   </Link>
 )
-
-export default AddBtn

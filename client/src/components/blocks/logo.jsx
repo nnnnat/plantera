@@ -9,11 +9,9 @@ const css = {
   position: 'relative'
 }
 
-const Logo = () => (
+export default () => (
   <Link to='/' className='logo h1 tx--reset' style={css}>
     <Notice />
     <Icon svg='logo' color='primary' />
   </Link>
 )
-
-export default Logo
