@@ -5,4 +5,4 @@ export default ({ label, name, value, onChange }) => (
     <b>{ label }</b>
     <input type='text' name={name} value={value} onChange={({ target }) => onChange(target.name, target.value)} />
   </label>
-)xsx
+)
