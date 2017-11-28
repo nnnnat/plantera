@@ -30,13 +30,18 @@ class Plants extends Component {
 
     if (thirsty.length > 0) sortedPlants.thirsty = thirsty
     if (all.length > 0) sortedPlants.all = all
+
+    if (all.length > 0) {
+      console.log('plant next water', thirsty[0].nextWater)
+      console.log('overdue date method?', d.overdue(thirsty[0].nextWater)) 
+    }
     
     return sortedPlants
   }
 
   render () {
     const plants = this.sortPlants()
-
+    
     return (
       <TransitionGroup>
         { map(plants, (p, t) => (

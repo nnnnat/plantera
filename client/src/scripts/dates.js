@@ -16,7 +16,12 @@ export const passed = (dt) => {
 // returns new fromated date
 export const nextDate = (dt, int) => {
   let date = parse(dt)
+  console.log('param date', dt)
+  console.log('param interval', int)
+  console.log('parsed param date', date)
+  
   date.setDate(date.getDate() + int)
+
   console.log('next date', date)
   console.log('formated next date', format(date))
   return format(date)
