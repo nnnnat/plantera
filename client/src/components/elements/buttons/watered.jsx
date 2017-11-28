@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // scripts
 import { waterPlant } from './../../../scripts/actions'
-import * as d from './../../../scripts/dates'
+import { nextDate } from './../../../scripts/dates'
 
 const css = {
   background: 'transparent',
@@ -14,9 +14,8 @@ const css = {
 
 class WateredBtn extends Component {
   clicked () {
-    let { plant } = this.props
-    plant.nextWater = d.nextDate(d.now(), plant.waterInt)
-    this.props.waterPlant(plant)
+    const { plant, waterPlant } = this.props
+    waterPlant({ ...plant, nextWater: nextDate(plant.waterInt) })
   }
 
   render () {

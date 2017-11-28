@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 // scripts
 import { postPlant, editPlant } from './../../scripts/actions'
-import * as d from './../../scripts/dates'
+import { nextDate } from './../../scripts/dates'
 // components
 import TextField from './../elements/fields/text'
 import RangeField from './../elements/fields/range'
@@ -32,14 +32,12 @@ class Form extends Component {
     e.preventDefault()
     const { history, postPlant, editPlant } = this.props
     const { name, species, waterInt, _id } = this.state
-    let plant = { name, species, waterInt }
+    const plant = { name, species, waterInt }
 
-    if (_id) {
-      plant = { ...plant, _id }
-      editPlant(plant, () => history.push('/'))
+    if (_id) { 
+      editPlant({ ...plant, _id }, () => history.push('/'))
     } else {
-      plant = { ...plant, nextWater: d.nextDate(d.now(), waterInt) }
-      postPlant(plant, () => history.push('/'))
+      postPlant({ ...plant, nextWater: nextDate(waterInt) }, () => history.push('/'))
     }
   }
 
