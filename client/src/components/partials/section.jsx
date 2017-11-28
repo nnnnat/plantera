@@ -1,6 +1,7 @@
 import React from 'react'
-import _ from 'lodash'
+import { TransitionGroup } from 'react-transition-group'
 // components
+import Slide from './../animations/slide'
 import SectionTitle from './../blocks/sectionTitle'
 import Plant from './../blocks/plant'
 
@@ -11,7 +12,13 @@ export default ({ plants, title }) => {
   return (
     <section className={`plants bdr--t ${bdrColor} bg--white`}>
       <SectionTitle title={`${title} Plants`} />
-      { _.map(plants, (p, k) => <Plant key={k} plant={p} thirsty={thirsty} />) }
+      <TransitionGroup>
+        { plants.map((p, i) => (
+          <Slide appear key={p._id} delay={i}>
+            <Plant plant={p} thirsty={thirsty} />
+          </Slide>
+        )) }
+      </TransitionGroup>
     </section>
   )
 }

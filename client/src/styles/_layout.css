@@ -3,16 +3,21 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 main {
-  flex: 1 1 100%;
+  flex: 1 1 auto;
   position: relative;
-  overflow: hidden;
   width: 100vw;
-}
 
-/* plant component */
-.plant:last-of-type {
-  border-bottom: none;
+  > div {
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }

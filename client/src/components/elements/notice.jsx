@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+// components
+import Pop from './../animations/pop'
+
 const css = {
   borderRadius: '50%',
   fontSize: '1rem',
@@ -10,11 +13,13 @@ const css = {
   top: '0'
 }
 
-export default connect(state => ({ count: state.notice }))(({ count }) => {
-  if (!count) return ''
+export default connect(({ notice }) => ({ notice }))(({ notice }) => {
+  if (!notice) return ''
   return (
-    <span className='notice bg--error tx--white pd0' style={css}>
-      { count }
-    </span>
+    <Pop appear in={(notice > 0)}>
+      <span className='bg--error tx--white pd0' style={css}>
+        { notice }
+      </span>
+    </Pop>
   )
 })

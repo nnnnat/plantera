@@ -3,7 +3,7 @@ import React from 'react'
 import Motion from './motion'
 
 export default ({ children, ...props }) => (
-  <Motion type='appear' {...props}>
+  <Motion type='pop' {...props}>
     {children}
   </Motion>
 )

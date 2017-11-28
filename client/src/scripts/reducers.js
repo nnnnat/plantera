@@ -1,25 +1,31 @@
 import { combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
-import _ from 'lodash'
 // scripts
 import { GET_PLANTS, WATER_PLANT, DELETE_PLANT, COUNT } from './actions'
 
-// reducers
-const plantReducer = (state = {}, action) => {
-  const { data } = (action.payload) ? action.payload : {}
+const plants = (state = [], action) => {
+  const { payload } = action
   switch (action.type) {
     case GET_PLANTS:
-      return _.mapKeys(data, '_id')
+      return payload.data
     case WATER_PLANT:
-      return { ...state, [data._id]: data }
+      const updateIndex = state.findIndex((p) => p._id === payload.data._id)
+      return [
+        ...state.slice(0, updateIndex),
+        payload.data,
+        ...state.slice(updateIndex + 1)
+      ]
     case DELETE_PLANT:
-      return _.omit(state, data)
+      let deleteIndex = state.findIndex((p) => p._id === payload)
+      return [
+        ...state.slice(0, deleteIndex),
+        ...state.slice(deleteIndex + 1)
+      ]
     default:
       return state
   }
 }
 
-const noticeReducer = (state = 0, action) => {
+const notice = (state = 0, action) => {
   switch (action.type) {
     case COUNT:
       return action.count
@@ -29,10 +35,4 @@ const noticeReducer = (state = 0, action) => {
 }
 
 // combined reducers
-const reducers = combineReducers({
-  plants: plantReducer,
-  notice: noticeReducer,
-  form: formReducer
-})
-
-export default reducers
+export default combineReducers({ plants, notice })

@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import _ from 'lodash'
+import { TransitionGroup } from 'react-transition-group'
+import { map } from 'lodash'
 // scripts
 import { getPlants, setNotice } from './../../scripts/actions'
 import * as d from './../../scripts/dates'
 // components
+import Fade from './../animations/fade'
 import Section from './../partials/section'
 
 class Plants extends Component {
@@ -16,31 +18,35 @@ class Plants extends Component {
   componentWillReceiveProps (nextProps) {
     const { setNotice } = this.props
     const { plants } = nextProps
-    const count = _.size(_.filter(plants, (p) => d.passed(p.nextWater)))
+    const count = plants.filter((p) => d.passed(p.nextWater)).length
     setNotice(count)
   }
 
   sortPlants () {
     const { plants } = this.props
-    const sort = _.reduce(plants, (r, v) => {
-      (d.passed(v.nextWater))
-        ? (r['thirsty'] || (r['thirsty'] = [])).push(v)
-        : (r['all'] || (r['all'] = [])).push(v)
-      return r
-    }, {})
+    const sortedPlants = {}
+    const thirsty = plants.filter(p => d.passed(p.nextWater))
+    const all = plants.filter(p => !d.passed(p.nextWater))
 
-    return Object.keys(sort).sort().reduce((r, k) => {
-      r[k] = sort[k]
-      return r
-    }, {})
+    if (thirsty.length > 0) sortedPlants.thirsty = thirsty
+    if (all.length > 0) sortedPlants.all = all
+    
+    return sortedPlants
   }
 
   render () {
     const plants = this.sortPlants()
-    return _.reverse(_.map(plants, (p, t) => <Section key={t} plants={p} title={t} />))
+
+    return (
+      <TransitionGroup>
+        { map(plants, (p, t) => (
+          <Fade appear key={t}>
+            <Section plants={p} title={t} />
+          </Fade>
+        )) }
+      </TransitionGroup>
+    )
   }
 }
 
-const mapStateToProps = (state) => ({ plants: state.plants })
-
-export default connect(mapStateToProps, { getPlants, setNotice })(Plants)
+export default connect(({ plants }) => ({ plants }), { getPlants, setNotice })(Plants)
