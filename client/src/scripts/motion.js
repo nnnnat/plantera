@@ -16,10 +16,10 @@ export const styles = {
       transition: `all ${slow}ms ${ease}`
     },
     cssState: {
-      entering: { opacity: 0, transform: 'scale(.98, .98) translateY(5vh)' },
+      entering: { opacity: 0, transform: 'scale(.98, .98) translateY(2vh)' },
       entered: { opacity: 1, transform: 'scale(1, 1) translateY(0vh)' },
-      exiting: { opacity: 0, transform: 'scale(.98, .98) translateY(5vh)' },
-      exited: { opacity: 0, transform: 'scale(.98, .98) translateY(5vh)' }
+      exiting: { opacity: 0, transform: 'scale(.98, .98) translateY(2vh)' },
+      exited: { opacity: 0, transform: 'scale(.98, .98) translateY(2vh)' }
     }
   },
   fade: {
@@ -53,10 +53,10 @@ export const styles = {
       transition: `all ${slow}ms ${ease}`
     },
     cssState:  {
-      entering: { opacity: 0, transform: 'translateX(15vw)' },
+      entering: { opacity: 0, transform: 'translateX(2vw)' },
       entered: { maxHeight: '5rem', opacity: 1, transform: 'translateX(0vw)' },
-      exiting: { opacity: 0, transform: 'translateX(-15vw)' },
-      exited: { opacity: 0, transform: 'translateX(-15vw)' }
+      exiting: { opacity: 0, transform: 'translateX(-2vw)' },
+      exited: { opacity: 0, transform: 'translateX(-2vw)' }
     }
   }
 }

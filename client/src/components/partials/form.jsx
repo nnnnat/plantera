@@ -52,7 +52,7 @@ class Form extends Component {
           <TextField label='Species' name='species' value={species} onChange={this.onChange} />
           <RangeField label='Watering Interval' name='waterInt' value={waterInt} onChange={this.onChange} />
         </div>
-        <FormBtns id={_id}/>
+        <FormBtns id={_id} />
       </form>
     )
   }

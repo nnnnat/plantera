@@ -17,6 +17,8 @@ export const passed = (dt) => {
 export const nextDate = (dt, int) => {
   let date = parse(dt)
   date.setDate(date.getDate() + int)
+  console.log('next date', date)
+  console.log('formated next date', format(date))
   return format(date)
 }
 
