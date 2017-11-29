@@ -22,20 +22,16 @@ class Plants extends Component {
     setNotice(count)
   }
 
-  sortPlants () {
+  sort () {
     const { plants } = this.props
-    const sortedPlants = {}
-    const thirsty = plants.filter(p => passed(p.nextWater))
-    const all = plants.filter(p => !passed(p.nextWater))
-
-    if (thirsty.length > 0) sortedPlants.thirsty = thirsty
-    if (all.length > 0) sortedPlants.all = all
-    return sortedPlants
+    return (plants.length) ? plants.reduce((res, p, i) => {
+      (passed(p.nextWater)) ? res['thirsty'].push(p) : res['all'].push(p)
+      return res
+    }, { thirsty: [], all: [] }) : {}
   }
 
   render () {
-    const plants = this.sortPlants()
-
+    const plants = this.sort()
     return (
       <TransitionGroup>
         { map(plants, (p, t) => (
