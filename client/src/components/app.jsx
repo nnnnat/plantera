@@ -17,7 +17,7 @@ export default withRouter(({ location }) => (
           <Switch location={location}>
             <Route path='/add-plant' component={PlantForm} />
             <Route path='/edit-plant' render={({ location }) => <PlantForm plant={location.state} />} />
-              <Route path='/' component={Plants} />
+            <Route path='/' component={Plants} />
           </Switch>
         </Appear>
       </TransitionGroup>

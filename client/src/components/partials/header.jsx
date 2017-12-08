@@ -15,7 +15,7 @@ const Header = ({ location: { pathname }, notice }) => {
   const bdr = (pathname === '/') ? (notice) ? 'alert' : 'gray1' : 'success'
   
   return (
-    <header className={`pd0 bdr--b bdr--${bdr}`} style={css}>
+    <header className={`pd2--x pd0--y bdr--b bdr--${bdr}`} style={css}>
       <div className='cn2 mg--auto gp'>
         <h1 className='h2 tx--primary tx--reset'>Plantera</h1>
         <div className='gp--right' style={{ width: 'auto' }}>
